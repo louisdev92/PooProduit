@@ -47,7 +47,7 @@ class Produit {
         try {
             $stmt = $this->pdo->prepare("SELECT * FROM produits WHERE id = :id");
             $stmt->execute(['id' => (int)$id]);
-            return $stmt->fetch(PDO::FETCH_ASSOC); // Retourne le produit sous forme de tableau associatif
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             error_log("Erreur lors de la récupération du produit: " . $e->getMessage());
             return false;
